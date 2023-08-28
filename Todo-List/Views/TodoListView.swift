@@ -16,10 +16,7 @@ struct TodoListView: View {
             VStack {
                 List {
                     ForEach(todosViewModel.todos) { todo in
-                        VStack {
-                            Text(todo.title)
-                            Text("1/\(todo.tasks.count) done")
-                        }
+                        ListRowView(todo: todo)
                     }
                 }
             }

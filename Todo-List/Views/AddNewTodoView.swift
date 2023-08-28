@@ -56,6 +56,7 @@ struct AddNewTodoView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
                         todosViewModel.addTodo(todo: Todo(id: UUID(), title: inputTitle, tasks: todosViewModel.tasks))
+                        print(todosViewModel.todos)
                         isPresented.toggle()
                     }
                 }
