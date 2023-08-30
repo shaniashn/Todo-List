@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TodoListView: View {
     @State var isPresented = false
-    @StateObject var todosViewModel = TodoViewModel()
+    @ObservedObject var todosViewModel: TodoViewModel
     
     var body: some View {
         NavigationStack {
@@ -28,15 +28,9 @@ struct TodoListView: View {
                     Text("New To-do")
                 }
                 .sheet(isPresented: $isPresented) {
-                    AddNewTodoView(isPresented: $isPresented)
+                    AddNewTodoView(todosViewModel: todosViewModel, isPresented: $isPresented)
                 }
             }
         }
-    }
-}
-
-struct TodoListView_Previews: PreviewProvider {
-    static var previews: some View {
-        TodoListView()
     }
 }

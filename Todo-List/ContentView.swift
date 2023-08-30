@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var todosViewModel = TodoViewModel()
+    
     var body: some View {
-        TodoListView()
+        TodoListView(todosViewModel: todosViewModel)
     }
 }
 

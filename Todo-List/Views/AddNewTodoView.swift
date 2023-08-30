@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddNewTodoView: View {
-    @StateObject var todosViewModel = TodoViewModel()
+    @ObservedObject var todosViewModel: TodoViewModel
     
     @Binding var isPresented: Bool
     
@@ -33,6 +33,7 @@ struct AddNewTodoView: View {
                         TextField("Input task", text: $inputTask)
                         Button {
                             todosViewModel.addTask(task: Tasks(id: index, task: inputTask))
+                            inputTask = ""
                             index += 1
                         } label: {
                             Image(systemName: "plus")
