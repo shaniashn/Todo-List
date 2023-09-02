@@ -26,6 +26,18 @@ class TodoViewModel: ObservableObject {
         todoModel.addTasks(task: task)
     }
     
+    func deleteItem(index: IndexSet) {
+        todoModel.todos.remove(atOffsets: index)
+    }
+    
+    func editItem(index: IndexSet) {
+        
+    }
+    
+    func moveItem(from: IndexSet, to: Int) {
+        todoModel.moveItem(from: from, to: to)
+    }
+    
 //    func showData() -> Todo {
 //        do {
 //            var todo = try todos

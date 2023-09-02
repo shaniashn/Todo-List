@@ -18,6 +18,8 @@ struct TodoListView: View {
                     ForEach(todosViewModel.todos) { todo in
                         ListRowView(todo: todo)
                     }
+                    .onDelete(perform: todosViewModel.deleteItem)
+                    .onMove(perform: todosViewModel.moveItem)
                 }
             }
             .navigationTitle("To-do")
@@ -33,4 +35,6 @@ struct TodoListView: View {
             }
         }
     }
+    
+    
 }

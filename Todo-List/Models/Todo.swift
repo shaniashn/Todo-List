@@ -30,4 +30,12 @@ struct TodoModel {
         tasks.append(task)
     }
     
+    mutating func moveItem(from: IndexSet, to: Int) {
+        todos.move(fromOffsets: from, toOffset: to)
+    }
+    
+    mutating func editItem(id: UUID, title: String) {
+        
+    }
+    
 }
