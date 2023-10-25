@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct TodoListView: View {
+//    @Binding var alertTitle: String
+//    @Binding var showAlert: Bool
+    
+    @State var alertTitle: String = ""
+    @State var showAlert: Bool = false
+    
     @State var isPresented = false
     @ObservedObject var todosViewModel: TodoViewModel
     
