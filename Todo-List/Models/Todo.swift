@@ -8,14 +8,33 @@
 import Foundation
 
 struct Todo: Identifiable {
-    var id: UUID
+    var id: String
     var title: String
+    var isCompleted: Bool
     var tasks: [Tasks]
+    
+    init(id: String = UUID().uuidString, title: String, isCompleted: Bool, tasks: [Tasks]) {
+        self.id = id
+        self.title = title
+        self.tasks = tasks
+        self.isCompleted = isCompleted
+    }
 }
 
 struct Tasks: Identifiable {
-    var id: Int
+    var id: UUID
     var task: String
+    var isCompleted: Bool
+    
+    init(id: UUID = UUID(), task: String, isCompleted: Bool) {
+        self.id = id
+        self.task = task
+        self.isCompleted = isCompleted
+    }
+    
+    func updateItem() -> Tasks {
+        return Tasks(task: task, isCompleted: !isCompleted)
+    }
 }
 
 struct TodoModel {
@@ -24,6 +43,7 @@ struct TodoModel {
     
     mutating func addTodos(todo: Todo) {
         todos.append(todo)
+        tasks.removeAll()
     }
     
     mutating func addTasks(task: Tasks) {
@@ -34,8 +54,12 @@ struct TodoModel {
         todos.move(fromOffsets: from, toOffset: to)
     }
     
-    mutating func editItem(id: UUID, title: String) {
-        
+    mutating func updateTask(theTask: Tasks) {
+        if let index = tasks.firstIndex(where: { $0.id == theTask.id }) {
+            tasks[index] = theTask.updateItem()
+        }
     }
+    
+//    mutating func emptyTask
     
 }
