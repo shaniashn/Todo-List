@@ -26,17 +26,24 @@ class TodoViewModel: ObservableObject {
         todoModel.addTasks(task: task)
     }
     
+//    func emptyTask() {
+//        tasks.popLast()
+//    }
+    
     func deleteItem(index: IndexSet) {
+        print(index)
         todoModel.todos.remove(atOffsets: index)
     }
     
-    func editItem(index: IndexSet) {
-        
+    func updatedTask(theTask: Tasks) { //fungsi ini panggil fungsi yang dari todoModel
+        todoModel.updateTask(theTask: theTask)
     }
     
     func moveItem(from: IndexSet, to: Int) {
         todoModel.moveItem(from: from, to: to)
     }
+    
+    
     
 //    func showData() -> Todo {
 //        do {
