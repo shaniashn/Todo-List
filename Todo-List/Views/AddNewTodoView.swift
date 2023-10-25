@@ -15,6 +15,10 @@ struct AddNewTodoView: View {
     @State var index: Int = 0
     @State var inputTitle: String = ""
     @State var inputTask: String = ""
+    @State var isCompleted: Bool = false
+    
+//    @State var showAlert: Bool = false
+//    @State var alertTitle: String = ""
     
     var body: some View {
         NavigationStack {
@@ -32,17 +36,24 @@ struct AddNewTodoView: View {
                     HStack {
                         TextField("Input task", text: $inputTask)
                         Button {
-                            todosViewModel.addTask(task: Tasks(id: index, task: inputTask))
+                            todosViewModel.addTask(task: Tasks(id: UUID(), task: inputTask, isCompleted: isCompleted))
                             inputTask = ""
                             index += 1
                         } label: {
                             Image(systemName: "plus")
                         }
+//                        .alert("asasa", isPresented: $showAlert, actions: getAlert)
                     }
                     VStack {
                         List {
                             ForEach(todosViewModel.tasks) { task in
-                                Text(task.task)
+                                HStack {
+                                    Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "checkmark.circle")
+                                    Text(task.task)
+                                }
+                                .onTapGesture {
+                                    todosViewModel.updatedTask(theTask: task)
+                                }
                             }
                         }
                         .listStyle(.plain)
@@ -56,14 +67,31 @@ struct AddNewTodoView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        todosViewModel.addTodo(todo: Todo(id: UUID(), title: inputTitle, tasks: todosViewModel.tasks))
-                        print(todosViewModel.todos)
-                        isPresented.toggle()
+//                        if checkText() {
+                        todosViewModel.addTodo(todo: Todo(id: UUID().uuidString, title: inputTitle, isCompleted: false, tasks: todosViewModel.tasks))
+                            print(todosViewModel.todos)
+                            isPresented.toggle()
+//                        } 
                     }
                 }
             }
+            
         }
+        
     }
+    
+//    func checkText() -> Bool {
+//        if inputTitle.count < 3 {
+//            alertTitle = "Minimal 3 huruf"
+//            showAlert.toggle()
+//            return false
+//        }
+//        return true
+//    }
+    
+//    func getAlert() -> Alert {
+//        return Alert(title: Text(alertTitle))
+//    }
 }
 
 //struct AddNewTodoView_Previews: PreviewProvider {
