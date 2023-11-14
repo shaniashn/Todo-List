@@ -26,12 +26,7 @@ class TodoViewModel: ObservableObject {
         todoModel.addTasks(task: task)
     }
     
-//    func emptyTask() {
-//        tasks.popLast()
-//    }
-    
     func deleteItem(index: IndexSet) {
-        print(index)
         todoModel.todos.remove(atOffsets: index)
     }
     

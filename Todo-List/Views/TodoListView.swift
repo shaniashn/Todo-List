@@ -8,13 +8,6 @@
 import SwiftUI
 
 struct TodoListView: View {
-//    @Binding var alertTitle: String
-//    @Binding var showAlert: Bool
-    
-    @State var alertTitle: String = ""
-    @State var showAlert: Bool = false
-    
-    @State var isPresented = false
     @ObservedObject var todosViewModel: TodoViewModel
     
     var body: some View {
@@ -30,13 +23,8 @@ struct TodoListView: View {
             }
             .navigationTitle("To-do")
             .toolbar {
-                Button {
-                    isPresented.toggle()
-                } label: {
-                    Text("New To-do")
-                }
-                .sheet(isPresented: $isPresented) {
-                    AddNewTodoView(todosViewModel: todosViewModel, isPresented: $isPresented)
+                NavigationLink("New To-do") {
+                    AddNewTodoView(todosViewModel: todosViewModel)
                 }
             }
         }

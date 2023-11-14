@@ -58,9 +58,9 @@
 			isa = PBXGroup;
 			children = (
 				00F52B492A95494700E9DF92 /* TodoListView.swift */,
-				0015132D2AE82949009FE253 /* TodoListDetails.swift */,
 				00F52B4D2A955B0300E9DF92 /* AddNewTodoView.swift */,
 				0030010E2A9B9BF3008DC44E /* ListRowView.swift */,
+				0015132D2AE82949009FE253 /* TodoListDetails.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 				0028F7C72A95CEC30036612C /* ViewModels */,
 				0028F7C62A95C96D0036612C /* Views */,
 				0028F7C52A95C93C0036612C /* Models */,
-				00F52B512A955B5900E9DF92 /* Unimportant */,
 				00F52B3B2A95490B00E9DF92 /* Todo_ListApp.swift */,
 				00F52B3D2A95490B00E9DF92 /* ContentView.swift */,
+				00F52B512A955B5900E9DF92 /* Unimportant */,
 				00F52B3F2A95490C00E9DF92 /* Assets.xcassets */,
 				00F52B412A95490C00E9DF92 /* Preview Content */,
 			);

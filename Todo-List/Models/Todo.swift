@@ -60,6 +60,8 @@ struct TodoModel {
         }
     }
     
-//    mutating func emptyTask
-    
+    mutating func countCompleteTask() -> Int {
+        let check = tasks.filter { $0.isCompleted == true }.count
+        return check
+    }
 }

@@ -15,7 +15,6 @@ struct ListRowView: View {
             Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "checkmark.circle")
             VStack(alignment: .leading){
                 Text(todo.title)
-                Text("1/\(todo.tasks.count) done")
             }
             .padding(.horizontal, 5)
             NavigationLink {
