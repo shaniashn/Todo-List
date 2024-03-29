@@ -7,11 +7,17 @@
 
 import Foundation
 
+//todo model
 struct Todo: Identifiable {
     var id: String
     var title: String
     var isCompleted: Bool
     var tasks: [Tasks]
+    
+    var countFinish: Int {
+        print("ini finish")
+        return tasks.filter { $0.isCompleted }.count
+    }
     
     init(id: String = UUID().uuidString, title: String, isCompleted: Bool, tasks: [Tasks]) {
         self.id = id
@@ -19,6 +25,8 @@ struct Todo: Identifiable {
         self.tasks = tasks
         self.isCompleted = isCompleted
     }
+    
+    
 }
 
 struct Tasks: Identifiable {
@@ -35,11 +43,19 @@ struct Tasks: Identifiable {
     func updateItem() -> Tasks {
         return Tasks(task: task, isCompleted: !isCompleted)
     }
+    
+    
 }
 
 struct TodoModel {
     var todos: [Todo] = []
     var tasks: [Tasks] = []
+    var counted: Int {
+        let x = tasks.filter { $0.isCompleted == true }.count
+        print("di todo model")
+        print(x)
+        return x
+    }
     
     mutating func addTodos(todo: Todo) {
         todos.append(todo)
@@ -60,8 +76,15 @@ struct TodoModel {
         }
     }
     
-    mutating func countCompleteTask() -> Int {
-        let check = tasks.filter { $0.isCompleted == true }.count
-        return check
-    }
+//    mutating func countCompleteTask(id: Int) -> Int {
+//        
+//        let check = tasks.filter { $0.isCompleted == true }.count
+//        return check
+//    }
+//    
+//    mutating func countCompleteTaskk(taks: Tasks) -> Int {
+//        let x = tasks.filter { $0.isCompleted == true }.count
+//        return x
+//    }
+    
 }
