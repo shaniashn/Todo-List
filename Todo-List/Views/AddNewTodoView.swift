@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//new todo
 struct AddNewTodoView: View {
     @ObservedObject var todosViewModel: TodoViewModel
     
@@ -19,9 +19,14 @@ struct AddNewTodoView: View {
         NavigationStack {
             VStack(alignment: .leading){
                 VStack(alignment: .leading){
-                    Text("Title")
-                        .font(.system(size: 22, weight: .regular))
-                    TextField("Input title", text: $inputTitle)
+//                    Form {
+//                        HStack {
+                            Text("Title")
+                                .font(.system(size: 22, weight: .regular))
+//                            Spacer()
+                            TextField("Input title", text: $inputTitle)
+//                        }
+//                    }
                 }
                 .padding()
                 
