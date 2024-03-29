@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//details after click 1 row
 struct TodoListDetails: View {
     var todo: Todo
     
