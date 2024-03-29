@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//  all todo lists
 struct TodoListView: View {
     @ObservedObject var todosViewModel: TodoViewModel
     
@@ -15,7 +15,7 @@ struct TodoListView: View {
             VStack {
                 List {
                     ForEach(todosViewModel.todos) { todo in
-                        ListRowView(todo: todo)
+                        ListRowView(todosViewModel: todosViewModel, todo: todo)
                     }
                     .onDelete(perform: todosViewModel.deleteItem)
                     .onMove(perform: todosViewModel.moveItem)
