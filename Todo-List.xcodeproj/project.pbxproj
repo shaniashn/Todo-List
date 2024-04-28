@@ -92,11 +92,11 @@
 		00F52B3A2A95490B00E9DF92 /* Todo-List */ = {
 			isa = PBXGroup;
 			children = (
+				00F52B3B2A95490B00E9DF92 /* Todo_ListApp.swift */,
+				00F52B3D2A95490B00E9DF92 /* ContentView.swift */,
 				0028F7C72A95CEC30036612C /* ViewModels */,
 				0028F7C62A95C96D0036612C /* Views */,
 				0028F7C52A95C93C0036612C /* Models */,
-				00F52B3B2A95490B00E9DF92 /* Todo_ListApp.swift */,
-				00F52B3D2A95490B00E9DF92 /* ContentView.swift */,
 				00F52B512A955B5900E9DF92 /* Unimportant */,
 				00F52B3F2A95490C00E9DF92 /* Assets.xcassets */,
 				00F52B412A95490C00E9DF92 /* Preview Content */,
