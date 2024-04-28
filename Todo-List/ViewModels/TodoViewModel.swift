@@ -7,9 +7,7 @@
 
 import Foundation
 
-//class taskManager: ObservableObject {
-//    @Published var cTask: Int = 0
-//}
+
 
 class TodoViewModel: ObservableObject {
     @Published var todoModel = TodoModel()
